@@ -1,0 +1,42 @@
+{% extends 'common.html' %}
+{% load static %}
+{% block content %}
+<!-- profile.html -->
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header text-center bg-primary text-white">
+            <h2>Update Profile</h2>
+        </div>
+        <div class="card-body">
+            <!-- Success Message -->
+            {% if messages %}
+                <div>
+                    {% for message in messages %}
+                        <div class="alert alert-success" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- Account Information Section -->
+                <h4 class="mb-3">Account Information</h4>
+                <div class="mb-3">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                </div>
+                <div class="mb-3">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-save"></i> Update Profile
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'common.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <div class="card-header bg-primary text-white text-center">
+            <h1 >{{ incident.title }}</h1>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Incident Meta -->
+                    <h4 class="mb-3 text-secondary">Incident Details</h4>
+                    <p><strong>Location:</strong> {{ incident.location }}</p>
+                    <p><strong>Date Reported:</strong> {{ incident.date_reported }}</p>
+                    <p><strong>Status:</strong>
+                        <span class="badge {% if incident.status == 'Resolved' %}bg-success{% else %}bg-warning text-dark{% endif %}">
+                            {{ incident.status }}
+                        </span>
+                    </p>
+                    <p><strong>Service Type:</strong> {{ incident.service_type }}</p>
+                    <p><strong>Reported By:</strong> {{ incident.reported_by }}</p>
+                    <p><strong>Assigned To:</strong> {{ incident.assigned_to }}</p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <!-- Incident Image -->
+                    <div class="incident-image mb-3">
+                        {% if incident.image %}
+                            <img src="{{ incident.image.url }}" alt="Incident Image" class="img-fluid rounded">
+                        {% else %}
+                            <img src="{% static 'images/ROAID.png' %}" alt="Default Incident Image" class="img-fluid rounded">
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <!-- Incident Description -->
+            <div class="incident-description mt-4">
+                <h4 class="text-secondary">Description</h4>
+                <p>{{ incident.description }}</p>
+            </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+            <a href="javascript:history.back()" class="btn btn-outline-primary">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </a>
+            <!--<div class="actions">
+                <a href="{% url 'edit_incident' incident.id %}" class="btn btn-warning">
+                    <i class="fas fa-edit"></i> Edit Incident
+                </a>
+                <a href="{% url 'delete_incident' incident.id %}" class="btn btn-danger">
+                    <i class="fas fa-trash"></i> Delete Incident
+                </a>
+            </div>-->
+        </div>
+    </div>
+</div>
+{% endblock %}

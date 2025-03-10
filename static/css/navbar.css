@@ -1,0 +1,46 @@
+
+  /* Default (Light Mode) */
+  body, html {
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .navbar {
+    /*background-color: #17202a;*/
+    background-color: #000 !important;
+
+
+  }
+
+  .navbar {
+  /* Optionally adjust the navbar’s background if needed */
+  background-color: #17202a;
+}
+
+.navbar .logo {
+  height: 50px;
+  width: 50px;
+  border-radius: 40%;
+  margin-left: 20px;
+}
+
+  .footer {
+    background-color: #17202a;
+    color: #ffffff;
+  }
+
+  /* Dark Mode Styles */
+  .dark-mode body, .dark-mode html {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+
+  .navbar.dark-mode {
+    background-color: #333;
+  }
+
+  .footer.dark-mode {
+    background-color: #000;
+    color: #f0f0f0;
+  }
